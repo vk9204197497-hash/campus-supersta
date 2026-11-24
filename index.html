@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - Campus Superstar</title>
+
+    <style>
+        body {
+            background: #101b46;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .login-box {
+            background: white;
+            color: #101b46;
+            max-width: 350px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #ffbd35;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> CAMPUS SUPERSTAR </h1>
+    <h2>Student Login Portal</h2>
+    <p>Welcome to Our College Campus</p>
+
+    <div class="login-box">
+        <h2>Student Login</h2>
+
+        <form id="loginForm">
+            <input type="text" id="studentName"
+            placeholder="Enter Student Name" required>
+
+            <input type="text" id="studentId"
+            placeholder="Enter Student ID" required>
+
+            <input type="password" id="password"
+            placeholder="Enter Password" required>
+
+            <button type="submit">LOGIN</button>
+        </form>
+
+        <p id="message"></p>+
+    </div>
+
+    <a href="../../index.html" style="color:white;">
+        Back to Home
+    </a>
+
+    <script>
+document.getElementById("loginForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("studentName").value;
+    let id = document.getElementById("studentId").value;
+    let password = document.getElementById("password").value;
+
+    if (name && id && password) {
+
+        localStorage.setItem("studentName", name);
+        localStorage.setItem("studentId", id);
+
+        window.location.href = "../student-dashboard/index.html";
+
+    } else {
+        alert("Please fill all details!");
+    }
+
+});
+</script>
+</body>
+</html>
